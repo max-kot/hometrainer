@@ -1,0 +1,183 @@
+:root {
+  --dark: black;
+  --light: white;
+  --dark-gradient: linear-gradient(-135deg, #495057, #212529);
+  --main-font: "Rubik", sans-serif;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik/Rubik-Regular.eot");
+  src: url("../fonts/Rubik/Rubik-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Rubik/Rubik-Regular.woff2") format("woff2"), url("../fonts/Rubik/Rubik-Regular.woff") format("woff"), url("../fonts/Rubik/Rubik-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik/Rubik-Medium.eot");
+  src: url("../fonts/Rubik/Rubik-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Rubik/Rubik-Medium.woff2") format("woff2"), url("../fonts/Rubik/Rubik-Medium.woff") format("woff"), url("../fonts/Rubik/Rubik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik/Rubik-Bold.eot");
+  src: url("../fonts/Rubik/Rubik-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Rubik/Rubik-Bold.woff2") format("woff2"), url("../fonts/Rubik/Rubik-Bold.woff") format("woff"), url("../fonts/Rubik/Rubik-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+img,
+picture source,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+option,
+a {
+  font: inherit;
+  cursor: pointer;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--main-font);
+  font-size: 1.125rem;
+  color: var(--light);
+  background: var(--dark-gradient);
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 43.75rem;
+  margin: 0 auto;
+  padding: 0 0.625rem;
+}
+
+.header {
+  margin-top: 1.25rem;
+}
+.header__body {
+  padding: 1.25rem;
+  background: var(--dark);
+  border-bottom: 1px solid var(--light);
+  display: flex;
+  justify-content: space-between;
+}
+.app__body {
+  background: var(--dark);
+  display: flex;
+}
+.app__body * {
+  flex: 0 1 50%;
+}
+.app__image-box {
+  min-height: 50vh;
+  position: relative;
+}
+.app__image {
+  padding-bottom: 100%;
+}
+.app__image img,
+.app__image source {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.app__content {
+  padding: 1.25rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.app__navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.btn__question {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+.btn__counter {
+  display: flex;
+  flex-direction: column;
+}
+.footer__body {
+  padding: 1.25rem;
+  background: var(--dark);
+  border-top: 1px solid var(--light);
+}
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+}
+.modal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: black;
+  padding: 2rem 0;
+  z-index: 5;
+  display: none;
+}
+.modal-wrapper.active {
+  display: block;
+}
+
+.modal {
+  display: none;
+}
+.modal.active {
+  display: block;
+}
+.modal__body {
+  background: #fff;
+  color: #000;
+  min-height: 80vh;
+  padding: 2rem;
+  text-align: center;
+}
+.rest__next-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}

@@ -1,0 +1,268 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+img,
+picture source,
+svg {
+	max-width: 100%;
+	height: auto;
+}
+
+button,
+input,
+select,
+option,
+a {
+	font: inherit;
+	cursor: pointer;
+}
+
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	min-height: 100vh;
+	font-family: var(--main-font);
+	font-size: rem(18);
+	color: var(--light);
+	background: var(--dark-gradient);
+}
+
+.wrapper {
+	position: relative;
+	overflow: hidden;
+	min-height: 100vh;
+}
+
+.container {
+	max-width: rem(700);
+	margin: 0 auto;
+	padding: 0 rem(10);
+}
+.header {
+	margin-top: rem(20);
+	&__body {
+		padding: rem(20);
+		background: var(--dark);
+		border-bottom: 1px solid var(--light);
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__btn-close {
+	}
+
+	&__counter {
+	}
+
+	&__timer {
+	}
+}
+
+.counter {
+	&__current {
+	}
+
+	&__last {
+	}
+}
+.timer {
+	&__minutes {
+	}
+
+	&__seconds {
+	}
+}
+.main {
+}
+.app {
+	&__body {
+		background: var(--dark);
+		display: flex;
+
+		* {
+			flex: 0 1 50%;
+		}
+	}
+
+	&__image-box {
+		min-height: 50vh;
+		position: relative;
+	}
+
+	&__image {
+		padding-bottom: 100%;
+
+		img,
+		source {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__content {
+		padding: rem(20);
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	&__navigation {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(20);
+	}
+}
+.btn {
+	&__question {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 2;
+	}
+
+	&__minus {
+	}
+
+	&__done {
+	}
+
+	&__counter {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__text {
+	}
+
+	&__plus {
+	}
+}
+.nav {
+	&__btn {
+	}
+}
+.footer {
+	&__body {
+		padding: rem(20);
+		background: var(--dark);
+		border-top: 1px solid var(--light);
+	}
+
+	&__nav {
+	}
+}
+.footer-nav {
+	display: flex;
+	justify-content: space-between;
+	&__btn {
+	}
+
+	&__btn-prev {
+	}
+
+	&__btn-pause {
+	}
+}
+
+.modal-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(#000, 1);
+	padding: 2rem 0;
+	z-index: 5;
+	display: none;
+
+	&.active {
+		display: block;
+	}
+}
+
+.modal {
+	display: none;
+
+	&.active {
+		display: block;
+	}
+
+	&__rest {
+	}
+
+	&__body {
+		background: #fff;
+		color: #000;
+		min-height: 80vh;
+		padding: 2rem;
+		text-align: center;
+	}
+
+	&__title {
+	}
+}
+.rest {
+	&__skip-btn {
+	}
+
+	&__skip-btn-time {
+	}
+
+	&__skip-btn-text {
+	}
+
+	&__navigation {
+	}
+
+	&__btn-pause {
+	}
+
+	&__btn-add {
+	}
+
+	&__next-box {
+	
+	}
+
+	&__next-title {
+	}
+
+	&__next-info {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+	}
+
+	&__next-name {
+	}
+
+	&__next-reps {
+	}
+
+	&__next-image {
+	}
+}
+.rest-timer {
+	&__seconds {
+	}
+
+	&__text {
+	}
+}
