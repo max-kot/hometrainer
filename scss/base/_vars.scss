@@ -1,9 +1,10 @@
 :root {
 	//* COLORS *//
-	--dark: black;
-	--light: white;
-	--dark-gradient: linear-gradient(-135deg, #495057, #212529);
+	--dark: #212529;
+	--light: #f8f9fa;
+	--accent: #5c7cfa;
+	--shadow: 0 0 5px 1px rgba(34, 38, 42, 0.3);
 
 	//* FONTS *//
-	--main-font: 'Rubik', sans-serif;
+	--main-font: "Rubik", sans-serif;
 }
