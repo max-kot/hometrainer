@@ -1,0 +1,172 @@
+.btn {
+	background: var(--light);
+	border: 2px solid transparent;
+	border-radius: 50%;
+	box-shadow: var(--shadow);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: rem(60);
+	height: rem(60);
+	color: var(--accent);
+	padding: rem(10);
+
+	flex: 0 1 rem(60);
+	transition: all 0.3s;
+
+	svg {
+		width: 100% !important;
+		height: 100% !important;
+		fill: currentColor;
+	}
+
+	@media (max-width: em(400)) {
+		width: rem(45);
+		height: rem(45);
+		flex: 0 1 rem(45);
+	}
+
+	&:hover {
+		background: var(--accent);
+		color: var(--light);
+		border-color: transparent;
+	}
+
+	&--accent {
+		background: var(--accent);
+		color: var(--light);
+		border-color: transparent;
+
+		&:hover {
+			border-color: var(--accent);
+			background: var(--light);
+			color: var(--accent);
+		}
+	}
+
+	&--border {
+		&:hover {
+			border-color: var(--light);
+		}
+	}
+
+	&--straight {
+		flex: unset;
+		width: unset;
+		height: auto;
+		border-radius: 25px;
+		gap: 10px;
+		font-weight: 500;
+		text-transform: uppercase;
+	}
+
+	&__return {
+		width: rem(50);
+		height: rem(50);
+		flex: 0 1 rem(50);
+
+		@media (max-width: em(400)) {
+			width: rem(45);
+			height: rem(45);
+			flex: 0 1 rem(45);
+		}
+	}
+
+	&__info {
+	}
+
+	&__minus {
+	}
+
+	&__done {
+		width: rem(240);
+		height: rem(240);
+		flex: 0 1 rem(240);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		text-align: center;
+		border-width: 6px;
+		text-transform: uppercase;
+
+		@media (max-width: em(800)) {
+			width: rem(150);
+			height: rem(150);
+			flex: 0 1 rem(150);
+		}
+	}
+
+	&__done-reps {
+		font-weight: 700;
+		font-size: rem(72);
+		margin-right: 5px;
+
+		@media (max-width: em(800)) {
+			font-size: rem(52);
+		}
+	}
+
+	&__done-text {
+		font-size: rem(24);
+		font-weight: 500;
+		@media (max-width: em(800)) {
+			font-size: rem(16);
+		}
+	}
+
+	&__plus {
+	}
+
+	&__prev {
+		width: rem(45);
+		height: rem(45);
+		flex: 0 1 rem(45);
+	}
+
+	&__pause {
+	}
+
+	&__skip {
+		width: rem(45);
+		height: rem(45);
+		flex: 0 1 rem(45);
+	}
+
+	//* REST *//
+	&__skip-rest {
+	}
+
+	&__rest {
+		width: rem(160);
+		height: rem(160);
+		flex: 0 1 rem(160);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		text-align: center;
+		border-width: 3px;
+		text-transform: uppercase;
+		font-weight: 500;
+	}
+
+	&__rest-timer {
+	}
+
+	&__rest-text {
+	}
+
+	&__rest-pause {
+	}
+
+	&__rest-add {
+	}
+
+	//* MODAL*//
+	&__close {
+		width: rem(35);
+		height: rem(35);
+		flex: 0 1 rem(35);
+	}
+}

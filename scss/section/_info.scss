@@ -1,0 +1,53 @@
+
+.modal-info {
+	overflow: auto;
+	
+	&__wrapper {
+		position: relative;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background: var(--accent);
+			opacity: 0.7;
+		}
+	
+	}
+	&__body {
+		position: relative;
+		z-index: 2;
+		padding: rem(60) 0;
+		gap: rem(30);
+		flex-wrap: wrap;
+		min-height: 100vh;
+	
+		& > * {
+			flex: 1;
+
+			@media (max-width: em(600)) {
+				flex: 1 1 100%;
+			}
+		}
+	}
+
+	&__image {
+	}
+
+	&__content {
+		text-align: left;
+	}
+
+	&__name {
+		font-weight: 500;
+		font-size: rem(22);
+		&:not(:last-child) {
+			margin-bottom: rem(20);
+		}
+	}
+
+	&__text {
+	}
+}
