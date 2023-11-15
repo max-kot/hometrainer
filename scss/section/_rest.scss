@@ -1,12 +1,15 @@
 .modal {
 }
 .modal-rest {
-
+	display: flex;
+	flex-direction: column;
+	& > * {
+		flex: 1;
+	}
 		&__top {
 			position: relative;
 			padding: rem(30) 0;
-			min-height: 70vh; //calc(var(--unit) * 18)
-
+			//min-height: 70vh; //calc(var(--unit) * 18)
 			@media (max-width: em(600)) {
 				padding: rem(15) 0;
 			}
@@ -74,10 +77,9 @@
 			background: var(--light);
 			color: var(--dark);
 			text-align: left;
-			min-height: 100%;
-
+			//flex: 0 1 auto;
 			@media (max-width: em(600)) {
-				min-height: 100%;
+				//min-height: 100%;
 			}
 		}
 

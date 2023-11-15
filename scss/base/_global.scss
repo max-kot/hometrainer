@@ -40,6 +40,10 @@ body {
 	visibility: hidden;
 }
 
+.no-scroll {
+	overflow: hidden;
+}
+
 .wrapper {
 	position: relative;
 	overflow: hidden;
@@ -76,40 +80,3 @@ body {
 	align-items: center;
 }
 
-.modal-wrapper {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: var(--accent);
-	z-index: 5;
-	display: none;
-
-	&.active {
-		display: block;
-	}
-}
-
-.modal {
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: var(--accent);
-	color: var(--light);
-	text-align: center;
-	overflow: auto;
-
-	&.active {
-		display: block;
-	}
-
-	&__btn-close {
-		position: absolute;
-		right: 10px;
-		top: 10px;
-	}
-}
