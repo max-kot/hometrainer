@@ -1,19 +1,63 @@
-function renderTimerUnit(array) {
+let render = {
+  pauseBtn: `<svg width="32" height="47" viewBox="0 0 32 47" xmlns="http://www.w3.org/2000/svg" >
+	 <path fill-rule="evenodd" clip-rule="evenodd" d="M27.5384 0.0512695C25.4142 0.0512695 23.6923 1.77326 23.6923 3.89743V42.359C23.6923 44.4832 25.4142 46.2052 27.5384 46.2052C29.6626 46.2052 31.3846 44.4832 31.3846 42.359V3.89744C31.3846 1.77326 29.6626 0.0512695 27.5384 0.0512695ZM4.46164 0.0513078C2.33746 0.0513078 0.615479 1.77329 0.615479 3.89747V42.359C0.615479 44.4832 2.33746 46.2052 4.46164 46.2052C6.58582 46.2052 8.30781 44.4832 8.30781 42.359V3.89747C8.30781 1.7733 6.58582 0.0513078 4.46164 0.0513078Z"/>
+	  </svg>`,
+  playBtn: `<svg width="31" height="33" viewBox="0 0 31 33" xmlns="http://www.w3.org/2000/svg" style="margin-left: 5px;">
+	 <path fill-rule="evenodd" clip-rule="evenodd" d="M26.2828 23.5439C31.4441 20.564 31.4441 13.1143 26.2828 10.1345L11.7667 1.7536C6.60542 -1.22626 0.153809 2.49857 0.153809 8.45831V25.22C0.153809 31.1798 6.60542 34.9046 11.7667 31.9247L26.2828 23.5439ZM25.0087 19.7746C27.0087 18.6199 27.0087 15.7331 25.0087 14.5784L8.84739 5.24773C6.84739 4.09304 4.34739 5.53641 4.34739 7.84581V26.5072C4.34739 28.8166 6.84739 30.26 8.84739 29.1053L25.0087 19.7746Z"/>
+	 </svg>`,
+
+  checkbox: {
+    true: `<svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0ZM22.2577 9.81748C22.7091 9.12289 22.5121 8.19382 21.8175 7.74233C21.1229 7.29085 20.1938 7.48793 19.7423 8.18252L12.9646 18.6098L9.074 14.6195C8.49568 14.0264 7.546 14.0143 6.95285 14.5927C6.3597 15.171 6.34767 16.1207 6.926 16.7138L12.126 22.0471C12.4442 22.3735 12.8935 22.5375 13.347 22.4928C13.8006 22.4481 14.2093 22.1996 14.4577 21.8175L22.2577 9.81748Z"/>
+		</svg>`,
+    false: `<svg class="stroke" stroke="currentColor" fill="none" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+		<rect x="1.5" y="1.5" width="27" height="27" rx="13.5" stroke-width="3"/>
+		</svg>`,
+  },
+};
+
+function renderTimerUnit(array, unit) {
   array.forEach((item) => {
-    item.innerHTML = timeFormat(seconds);
+    item.innerHTML = timeFormat(unit);
   });
 }
 
+function deleteHtmlTags(htmlString) {
+  return htmlString.replace(/(<([^>]+)>)/gi, "").trim();
+}
+
+function convertToMinutes(time) {
+  let array = time.split(":");
+  let hours = parseInt(array[0]);
+  let minutes = parseInt(array[1]);
+  let seconds = parseInt(array[2]);
+
+  return Math.floor(minutes + hours * 60 + seconds / 60);
+}
+
+function countReps(array) {
+  let allReps = 0;
+  for (item of array) {
+    allReps += item.reps;
+  }
+  return allReps;
+}
+
 const modalWrapper = document.querySelector(".modal-wrapper");
-let allModalBtn = document.querySelectorAll("[data-modal-href]");
+let allModalBtn;
 let allModal = document.querySelectorAll(".modal");
 let allModalCloseBtn = document.querySelectorAll(".modal__btn-close");
 
 const modalSkipBtn = document.querySelector(".modal__skip-btn");
 let modal;
+let body;
+
+function uptadeModalBtn() {
+  allModalBtn = document.querySelectorAll("[data-modal-href]");
+}
 
 function closeModal() {
   modalWrapper.classList.remove("active");
+  //  body.classList.remove("no-scroll");
 
   allModal.forEach((modal) => {
     modal.classList.remove("active");
@@ -21,14 +65,18 @@ function closeModal() {
 }
 
 function startModal() {
+  body = document.body;
+  uptadeModalBtn();
   allModalBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
 
       if (modalWrapper.classList.contains("active")) {
         modalWrapper.classList.remove("active");
+        //  body.classList.remove("no-scroll");
       } else {
         modalWrapper.classList.add("active");
+        //  body.classList.add("no-scroll");
       }
 
       let modalId = btn.getAttribute("data-modal-href");
@@ -46,14 +94,11 @@ function startModal() {
     });
   });
 }
+
 allModalCloseBtn.forEach((closeBtn) => {
   closeBtn.addEventListener("click", closeModal);
 });
 startModal();
-
-let data = {
-  rest: 30,
-};
 
 let currentExercises = [
   {
@@ -199,6 +244,18 @@ let currentExercises = [
   },
 ];
 
+let data = {
+  rest: 30,
+  ccalBurned: 10,
+  percentBurned: {
+    cardio: 7,
+    mix: 14,
+    power: 14,
+  },
+  finishReps: 0,
+  allReps: countReps(currentExercises),
+};
+
 // счётчик упражнений
 let allCurrentIndex = document.querySelectorAll(".counter__current");
 let allFinishIndex = document.querySelectorAll(".counter__finish");
@@ -232,31 +289,31 @@ function timeFormat(number) {
 }
 
 function startTimer() {
-  minutes = 0;
   seconds = 0;
+  minutes = 0;
   hours = 0;
 
-  renderTimerUnit(allTimerSeconds);
-  renderTimerUnit(allTimerMinutes);
-  renderTimerUnit(allTimerHours);
+  renderTimerUnit(allTimerSeconds, seconds);
+  renderTimerUnit(allTimerMinutes, minutes);
+  renderTimerUnit(allTimerHours, hours);
 
   let intervalId = setInterval(() => {
     if (!isPaused) {
       seconds++;
-      renderTimerUnit(allTimerSeconds);
+      renderTimerUnit(allTimerSeconds, seconds);
 
       if (seconds > 59) {
         seconds = 0;
-        renderTimerUnit(allTimerSeconds);
+        renderTimerUnit(allTimerSeconds, seconds);
         minutes++;
-        renderTimerUnit(allTimerMinutes);
+        renderTimerUnit(allTimerMinutes, minutes);
       }
 
       if (minutes > 59) {
         minutes = 0;
-        renderTimerUnit(allTimerMinutes);
+        renderTimerUnit(allTimerMinutes, minutes);
         hours++;
-        renderTimerUnit(allTimerHours);
+        renderTimerUnitrenderTimerUnit(allTimerHours, hours);
       }
     }
   }, 1000);
@@ -271,9 +328,9 @@ function showExercise() {
   }
 
   if (index === finish) {
-    skipBtn.classList.add("hidden");
-  } else {
-    skipBtn.classList.remove("hidden");
+    createFinishModal(nextBtn);
+    createFinishModal(skipBtn); //? ===> не работает
+    // startModal();
   }
 
   appImage.innerHTML = `<img src="./images/${currentExercises[index].image}.gif" alt="s${currentExercises[index].name}">`;
@@ -297,6 +354,7 @@ function startExercise() {
   index = 0;
   finish = currentExercises.length - 1;
   // сохранять какие упраженения и сколько повторений выполнено
+
   startTimer();
   showExercise();
 }
@@ -304,13 +362,23 @@ function startExercise() {
 nextBtn.addEventListener("click", () => {
   if (index < finish) {
     currentExercises[index].isFinished = true;
+    data.finishReps += currentExercises[index].reps;
+
     index++;
     showExercise();
     startRestTimer();
     showRestContent();
   } else {
     currentExercises[index].isFinished = true;
+    data.finishReps += currentExercises[index].reps;
+
     endExercise();
+  }
+
+  // запуск таймера если стоит на паузе
+  if (isPaused === true) {
+    isPaused = false;
+    pauseBtn.innerHTML = render.pauseBtn;
   }
 });
 
@@ -337,7 +405,13 @@ skipBtn.addEventListener("click", () => {
     showRestContent();
   } else {
     endExercise();
-    // renderFinishInfo();
+    //  renderFinishInfo();
+  }
+
+  // запуск таймера если стоит на паузе
+  if (isPaused === true) {
+    isPaused = false;
+    pauseBtn.innerHTML = render.pauseBtn;
   }
 });
 
@@ -347,16 +421,21 @@ prevBtn.addEventListener("click", () => {
     index--;
     showExercise();
   }
+  // запуск таймера если стоит на паузе
+  if (isPaused === true) {
+    isPaused = false;
+    pauseBtn.innerHTML = render.pauseBtn;
+  }
 });
 
 // пауза таймера
 pauseBtn.addEventListener("click", () => {
   if (!isPaused) {
     isPaused = true;
-    pauseBtn.innerHTML = "Продолжить";
+    pauseBtn.innerHTML = render.playBtn;
   } else {
     isPaused = false;
-    pauseBtn.innerHTML = "Пауза";
+    pauseBtn.innerHTML = render.pauseBtn;
   }
 });
 
@@ -381,6 +460,19 @@ let isRestPaused = false;
 function finishRestTimer() {
   restSeconds = data.rest;
   restSkipBtnSeconds.innerHTML = restSeconds;
+
+  // запускаем таймер если он стоит на паузе
+  if (isPaused === true) {
+    isPaused = false;
+    pauseBtn.innerHTML = render.pauseBtn;
+  }
+
+  // переводим в выключеное значение таймер отдыха
+  if (isRestPaused === true) {
+    isRestPaused = false;
+    restPauseBtn.innerHTML = "Пауза";
+  }
+
   clearInterval(restInterval);
 }
 
@@ -420,10 +512,6 @@ restPauseBtn.addEventListener("click", () => {
 restBtnSkip.addEventListener("click", () => {
   closeModal();
   finishRestTimer();
-
-  if (index === finish) {
-    createFinishModal();
-  }
 });
 
 // контент
@@ -455,21 +543,40 @@ allInfoBtn.forEach((infoBtn) => {
 });
 
 //* FINISH *//
-function createFinishModal() {
-  nextBtn.setAttribute("data-modal-href", "finish");
+function createFinishModal(btn) {
+  btn.setAttribute("data-modal-href", "finish");
+  startModal();
 }
 
 let finishTable = document.querySelector(".modal-finish__table");
+let finishTimer = document.querySelector(".finish-stats__time");
+let finishCcal = document.querySelector(".finish-stats__ccal span");
+let finishReps = document.querySelector(".finish-stats__reps span");
 
 function renderFinishInfo() {
+  let currentTimer = document.querySelector(".timer").innerHTML;
+  let currentCcal =
+    convertToMinutes(deleteHtmlTags(currentTimer)) * data.ccalBurned;
+  currentCcal += (currentCcal * data.percentBurned.cardio) / 100;
+
+  // статистические данные
+  finishCcal.innerHTML = currentCcal;
+  finishTimer.innerHTML = currentTimer;
+  finishReps.innerHTML = `${data.finishReps} из ${data.allReps}`;
+
+  // таблица тренировки
   for (let i = 0; i < currentExercises.length; i++) {
     finishTable.innerHTML += `<tr class="${currentExercises[i].isFinished}">
-		<td class="finish-table__image"><img src="./images/${currentExercises[i].image}.gif" alt="s${currentExercises[i].name}"></td>
+		<td class="finish-table__image"><img src="./images/${
+      currentExercises[i].image
+    }.gif" alt="s${currentExercises[i].name}"></td>
 		<td class="finish-table__text">
 			<p class="finish-table__name">${currentExercises[i].name}</p>
 			<p class="finish-table__reps">${currentExercises[i].reps}</p>
 		</td>
-		<td class="finish-table__check">${currentExercises[i].isFinished}</td>
+		<td class="finish-table__check">${
+      render.checkbox[currentExercises[i].isFinished]
+    }</td>
 	</tr>`;
   }
 }
