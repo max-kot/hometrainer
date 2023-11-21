@@ -21,7 +21,12 @@ a {
 	font: inherit;
 	cursor: pointer;
 }
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	/* display: none; <- Crashes Chrome on hover */
+	-webkit-appearance: none;
+	margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 html {
 	box-sizing: border-box;
 	scroll-behavior: smooth;
@@ -60,7 +65,7 @@ body {
 	}
 
 	@media (max-width: em(600)) {
-		padding:  0 rem(10);
+		padding: 0 rem(10);
 	}
 }
 
@@ -79,4 +84,3 @@ body {
 	justify-content: space-between;
 	align-items: center;
 }
-

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MAXFIT | Тренировки дома</title>
+    <title>MAXFIT - Тренировки дома</title>
 
     <link rel="stylesheet" href="css/style.css" />
     <script defer src="js/index.js"></script>
@@ -14,16 +14,6 @@
       <div class="app">
         <div class="container">
           <header class="app__header app-header flex flex-sb-c">
-            <button
-              class="app-header__btn btn btn__return btn--border"
-              aria-label="Выход" data-modal-href="finish"
-            >
-              <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M1.23223 17.2322C0.255922 18.2085 0.255922 19.7915 1.23223 20.7678L17.1421 36.6777C18.1184 37.654 19.7014 37.654 20.6777 36.6777C21.654 35.7014 21.654 34.1184 20.6777 33.1421L6.53553 19L20.6777 4.85786C21.654 3.88155 21.654 2.29864 20.6777 1.32233C19.7014 0.34602 18.1184 0.34602 17.1421 1.32233L1.23223 17.2322ZM38 16.5L3 16.5L3 21.5L38 21.5L38 16.5Z"
-                />
-              </svg>
-            </button>
             <div class="app-header__counter app-counter counter">
               <span class="counter__current">1</span> из
               <span class="counter__finish">1</span>
@@ -147,9 +137,8 @@
           </footer>
         </div>
       </div>
-
       <!-- * MODALS * -->
-      <div class="modal-wrapper">
+      <div class="modal-wrapper active">
         <div class="modal modal-rest" id="rest">
           <div
             class="modal-rest__top"
@@ -158,17 +147,7 @@
             <div class="container">
               <div class="modal-rest__top-body">
                 <header class="modal-rest__header flex flex-sb-c">
-                  <button
-                    class="app-header__btn btn btn__return"
-                    aria-label="Выход"
-                  >
-                    <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M1.23223 17.2322C0.255922 18.2085 0.255922 19.7915 1.23223 20.7678L17.1421 36.6777C18.1184 37.654 19.7014 37.654 20.6777 36.6777C21.654 35.7014 21.654 34.1184 20.6777 33.1421L6.53553 19L20.6777 4.85786C21.654 3.88155 21.654 2.29864 20.6777 1.32233C19.7014 0.34602 18.1184 0.34602 17.1421 1.32233L1.23223 17.2322ZM38 16.5L3 16.5L3 21.5L38 21.5L38 16.5Z"
-                      />
-                    </svg>
-                  </button>
-                  <h3 class="modal-rest__title">Отдых</h3>
+                  <h3 class="modal-rest__title" ">Отдых</h3>
                   <div class="app-header__timer timer">
                     <span class="timer__hours">00</span><span>:</span
                     ><span class="timer__minutes">00</span><span>:</span
@@ -253,70 +232,152 @@
             </div>
           </div>
         </div>
-        <div class="modal modal-finish finish" id="finish" >
-			<div class="modal-finish__top" style="background: url('./images/cover.jpg') center/cover no-repeat">
-				<div class="container container--small">
-					<div class="modal-finish__top-body">
-						<h3 class="modal-finish__title">Тренировка окончена</h3>
-						<p class="modal-finish__motivation">
-
-						</p>
-						<ul class="modal-finish__stats finish-stats flex flex-sb-c">
-							<li class="finish-stats__item flex ">
-								<div class="finish-stats__icon">
-									<svg width="18" height="20" viewBox="0 0 18 20"  xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd" d="M9.96335 0.301656C9.84158 0.13836 9.65862 0.0316192 9.45654 0.00597177C9.25446 -0.0196757 9.05064 0.0379768 8.89194 0.165676C7.02175 1.6705 5.7174 3.85363 5.35322 6.34224C4.69665 5.86628 4.11999 5.28639 3.6476 4.62668C3.51764 4.44519 3.3136 4.33103 3.09095 4.31521C2.8683 4.2994 2.65017 4.38358 2.49587 4.54487C0.950469 6.16029 0 8.3527 0 10.7655C0 15.7361 4.02944 19.7655 9 19.7655C13.9706 19.7655 18 15.7361 18 10.7655C18 7.10463 15.8143 3.95586 12.6798 2.54993C11.5706 2.00843 10.6547 1.22871 9.96335 0.301656ZM12.75 12.2659C12.75 14.337 11.0711 16.0159 9 16.0159C6.92893 16.0159 5.25 14.337 5.25 12.2659C5.25 11.8566 5.31559 11.4626 5.43682 11.0938C6.06529 11.5584 6.78769 11.9032 7.57031 12.0945C7.78619 10.6937 8.48657 9.45282 9.49489 8.54828C11.3321 8.79049 12.75 10.3626 12.75 12.2659Z"/>
-										</svg>
-								</div>
-								<div class="finish-stats__content">
-									<h4 class="finish-stats__title">
-										сожжено
-									</h4>
-									<p class="finish-stats__text finish-stats__ccal">
-										<span>0</span> ккал
-									</p>
-								</div>
-							</li>
-							<li class="finish-stats__item flex ">
-								<div class="finish-stats__icon">
-									<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd" d="M9.75 0C4.36522 0 0 4.36522 0 9.75C0 15.1348 4.36522 19.5 9.75 19.5C15.1348 19.5 19.5 15.1348 19.5 9.75C19.5 4.36522 15.1348 0 9.75 0ZM10.5 3.75C10.5 3.33579 10.1642 3 9.75 3C9.33579 3 9 3.33579 9 3.75V9.75C9 10.1642 9.33579 10.5 9.75 10.5H14.25C14.6642 10.5 15 10.1642 15 9.75C15 9.33579 14.6642 9 14.25 9H10.5V3.75Z"/>
-										</svg>
-								</div>
-								<div class="finish-stats__content">
-									<h4 class="finish-stats__title">
-										время
-									</h4>
-									<p class="finish-stats__text finish-stats__time">
-										<span>00:00:00</span>
-									</p>
-								</div>
-							</li>
-							<li class="finish-stats__item flex ">
-								<div class="finish-stats__icon">
-									<svg width="18" height="21" viewBox="0 0 18 21" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd" d="M11.6152 0.0949517C11.9165 0.262894 12.0643 0.614627 11.9736 0.947364L9.98195 8.25003H17.25C17.5487 8.25003 17.8189 8.42721 17.9379 8.70111C18.0569 8.97502 18.0021 9.29344 17.7983 9.51176L7.29831 20.7618C7.06298 21.0139 6.68604 21.073 6.38481 20.9051C6.08357 20.7372 5.9357 20.3854 6.02644 20.0527L8.01808 12.75H0.750016C0.451369 12.75 0.181182 12.5728 0.062156 12.2989C-0.0568695 12.025 -0.00204775 11.7066 0.201725 11.4883L10.7017 0.238287C10.937 -0.0138462 11.314 -0.0729909 11.6152 0.0949517Z"/>
-										</svg>										
-								</div>
-								<div class="finish-stats__content">
-									<h4 class="finish-stats__title">
-										повторений
-									</h4>
-									<p class="finish-stats__text finish-stats__reps">
-										<span>0</span> 
-									</p>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="modal-finish__bottom">
-				<div class="container container--small">
-					<table class="modal-finish__table finish-table">
-					</table>
-				</div>
-			</div>
+        <div class="modal modal-finish finish" id="finish">
+          <div
+            class="modal-finish__top"
+            style="background: url('./images/cover.jpg') center/cover no-repeat"
+          >
+            <div class="container container--small">
+              <div class="modal-finish__top-body">
+                <h3 class="modal-finish__title">Тренировка окончена</h3>
+                <p class="modal-finish__motivation"></p>
+                <ul class="modal-finish__stats finish-stats flex flex-sb-c">
+                  <li class="finish-stats__item flex">
+                    <div class="finish-stats__icon">
+                      <svg
+                        width="18"
+                        height="20"
+                        viewBox="0 0 18 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M9.96335 0.301656C9.84158 0.13836 9.65862 0.0316192 9.45654 0.00597177C9.25446 -0.0196757 9.05064 0.0379768 8.89194 0.165676C7.02175 1.6705 5.7174 3.85363 5.35322 6.34224C4.69665 5.86628 4.11999 5.28639 3.6476 4.62668C3.51764 4.44519 3.3136 4.33103 3.09095 4.31521C2.8683 4.2994 2.65017 4.38358 2.49587 4.54487C0.950469 6.16029 0 8.3527 0 10.7655C0 15.7361 4.02944 19.7655 9 19.7655C13.9706 19.7655 18 15.7361 18 10.7655C18 7.10463 15.8143 3.95586 12.6798 2.54993C11.5706 2.00843 10.6547 1.22871 9.96335 0.301656ZM12.75 12.2659C12.75 14.337 11.0711 16.0159 9 16.0159C6.92893 16.0159 5.25 14.337 5.25 12.2659C5.25 11.8566 5.31559 11.4626 5.43682 11.0938C6.06529 11.5584 6.78769 11.9032 7.57031 12.0945C7.78619 10.6937 8.48657 9.45282 9.49489 8.54828C11.3321 8.79049 12.75 10.3626 12.75 12.2659Z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="finish-stats__content">
+                      <h4 class="finish-stats__title">сожжено</h4>
+                      <p class="finish-stats__text finish-stats__ccal">
+                        <span>0</span> ккал
+                      </p>
+                    </div>
+                  </li>
+                  <li class="finish-stats__item flex">
+                    <div class="finish-stats__icon">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M9.75 0C4.36522 0 0 4.36522 0 9.75C0 15.1348 4.36522 19.5 9.75 19.5C15.1348 19.5 19.5 15.1348 19.5 9.75C19.5 4.36522 15.1348 0 9.75 0ZM10.5 3.75C10.5 3.33579 10.1642 3 9.75 3C9.33579 3 9 3.33579 9 3.75V9.75C9 10.1642 9.33579 10.5 9.75 10.5H14.25C14.6642 10.5 15 10.1642 15 9.75C15 9.33579 14.6642 9 14.25 9H10.5V3.75Z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="finish-stats__content">
+                      <h4 class="finish-stats__title">время</h4>
+                      <p class="finish-stats__text finish-stats__time">
+                        <span>00:00:00</span>
+                      </p>
+                    </div>
+                  </li>
+                  <li class="finish-stats__item flex">
+                    <div class="finish-stats__icon">
+                      <svg
+                        width="18"
+                        height="21"
+                        viewBox="0 0 18 21"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M11.6152 0.0949517C11.9165 0.262894 12.0643 0.614627 11.9736 0.947364L9.98195 8.25003H17.25C17.5487 8.25003 17.8189 8.42721 17.9379 8.70111C18.0569 8.97502 18.0021 9.29344 17.7983 9.51176L7.29831 20.7618C7.06298 21.0139 6.68604 21.073 6.38481 20.9051C6.08357 20.7372 5.9357 20.3854 6.02644 20.0527L8.01808 12.75H0.750016C0.451369 12.75 0.181182 12.5728 0.062156 12.2989C-0.0568695 12.025 -0.00204775 11.7066 0.201725 11.4883L10.7017 0.238287C10.937 -0.0138462 11.314 -0.0729909 11.6152 0.0949517Z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="finish-stats__content">
+                      <h4 class="finish-stats__title">повторений</h4>
+                      <p class="finish-stats__text finish-stats__reps">
+                        <span>0</span>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="modal-finish__bottom">
+            <div class="container container--small">
+              <table class="modal-finish__table finish-table"></table>
+            </div>
+          </div>
+        </div>
+        <div class="modal modal-start active" id="start">
+          <header class="start-header">
+            <div class="container">
+              <div class="start-header__body">
+                <h1>MAX|FIT</h1>
+                <p>Минимум усилий - максимум результата</p>
+              </div>
+            </div>
+          </header>
+          <main class="start-main flex">
+            <div
+              class="start-main__top"
+              style="
+                background: url('./images/cover.jpg') center/cover no-repeat;
+              "
+            >
+              <h2 class="start-main__title">Кардио без прыжков</h2>
+              <ul class="start-main__stats start-stats">
+                <li class="start-stats__item start-stats__item-exercises">
+                  <span>20</span>
+                  <span>упражнений</span>
+                </li>
+                <li class="start-stats__item start-stats__item-ccal">
+                  <span>250</span>
+                  <span>ккалл</span>
+                </li>
+                <li class="start-stats__item start-stats__item-duration">
+                  <span>30-35</span>
+                  <span>минут</span>
+                </li>
+              </ul>
+              <button
+                class="start-main__btn btn btn--accent btn--straight"
+                type="button"
+              >
+                Начать тренировку
+              </button>
+            </div>
+            <div class="start-main__bottom">
+              <form class="start-main__form settings-form">
+                <div class="settings-form__field">
+                  <label class="settings-form__label" for="#rest-time"
+                    >Отдых между упражнениями</label
+                  >
+                  <input
+                    type="number"
+                    id="rest-time"
+                    class="settings-form__input"
+                    value="30"
+                    min="10"
+                    data-number-control
+                    data-number-control-steps="10"
+                  />
+                </div>
+              </form>
+              <div class="start-main__table-wrapper">
+                <table class="start-main__table start-table"></table>
+              </div>
+            </div>
+          </main>
         </div>
       </div>
     </div>
