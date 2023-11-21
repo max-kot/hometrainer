@@ -45,11 +45,11 @@
 			text-transform: uppercase;
 			font-size: rem(42);
 			text-align: center;
-			margin-left: rem(45);
+			margin: 0 auto;
+			transform: translateX(32%);
 
 			@media (max-width: em(600)) {
 				font-size: rem(32);
-				margin-left: rem(20);
 			}
 		}
 
